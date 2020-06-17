@@ -54,8 +54,8 @@
                     <a data-toggle="modal"
                        data-target="#loginModal"><span class="fa fa-sign-in"></span> Login</a>
                 </span>
-            </div> <!-- .collapse .navbar-collapse #Navbar -->
-        </div> <!-- .container -->
+            </div>
+        </div>
     </nav>
     <!-- navbar -->
 
@@ -368,7 +368,7 @@
                         <span class="carousel-control-next-icon"></span>
                     </a>
 
-                    <div id="myCarouselButtons"
+                    <!--  <div id="myCarouselButton"
                          class="btn-group">
                         <button id="myCarouselButtonPause"
                                 class="btn btn-danger btn-sm">
@@ -378,7 +378,12 @@
                                 class="btn btn-danger btn-sm">
                             <span class="fa fa-play"></span>
                         </button>
-                    </div>
+                    </div> -->
+
+                    <button id="myCarouselButton"
+                            class="btn btn-danger btn-sm">
+                        <span class="fa fa-pause"></span>
+                    </button>
 
                 </div>
             </div>
@@ -616,12 +621,17 @@
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function () {
-            $('#my-carousel').carousel({ interval: 2000 });
-            $('#myCarouselButtonPause').click(function (e) {
-                $('#my-carousel').carousel('pause');
-            });
-            $('#myCarouselButtonPlay').click(function (e) {
-                $('#my-carousel').carousel('cycle');
+            $('#my-carousel').carousel({ interval: 200 });
+            $('#myCarouselButton').click(function (e) {
+                if ($('#myCarouselButton').children('span').hasClass('fa-pause')) {
+                    $('#my-carousel').carousel('pause');
+                    $('#myCarouselButton').children('span').removeClass('fa-pause');
+                    $('#myCarouselButton').children('span').addClass('fa-play');
+                } else if ($('#myCarouselButton').children('span').hasClass('fa-play')) {
+                    $('#my-carousel').carousel('cycle');
+                    $('#myCarouselButton').children('span').removeClass('fa-play');
+                    $('#myCarouselButton').children('span').addClass('fa-pause');
+                }
             });
         });
     </script>
@@ -630,8 +640,7 @@
         $(document).ready(function () {
             $('[data-toggle="tooltip"]').tooltip();
         })
-    </script>
- -->
+    </script> -->
 </body>
 
 </html>
