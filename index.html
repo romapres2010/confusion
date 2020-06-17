@@ -286,7 +286,7 @@
             </div>
     </header> <!-- Ristorante con Fusion -->
 
-
+    <!-- Main Container -->
     <div class="container">
 
         <!-- Carousel -->
@@ -367,6 +367,18 @@
                        data-slide="next">
                         <span class="carousel-control-next-icon"></span>
                     </a>
+
+                    <div id="myCarouselButtons"
+                         class="btn-group">
+                        <button id="myCarouselButtonPause"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-pause"></span>
+                        </button>
+                        <button id="myCarouselButtonPlay"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-play"></span>
+                        </button>
+                    </div>
 
                 </div>
             </div>
@@ -545,7 +557,7 @@
         <!-- Reserve a Table -->
 
     </div>
-    <!-- .container -->
+    <!-- Main Container -->
 
     <footer class="footer">
         <div class="container">
@@ -602,11 +614,24 @@
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#my-carousel').carousel({ interval: 2000 });
+            $('#myCarouselButtonPause').click(function (e) {
+                $('#my-carousel').carousel('pause');
+            });
+            $('#myCarouselButtonPlay').click(function (e) {
+                $('#my-carousel').carousel('cycle');
+            });
+        });
+    </script>
+
     <!--     <script>
         $(document).ready(function () {
             $('[data-toggle="tooltip"]').tooltip();
         })
-    </script> -->
+    </script>
+ -->
 </body>
 
 </html>
